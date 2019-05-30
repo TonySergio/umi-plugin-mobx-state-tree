@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { join, dirname, basename, extname } from 'path';
+import { join, dirname, basename, extname, sep } from 'path';
 import globby from 'globby';
 import uniq from 'lodash.uniq';
 import isRoot from 'path-is-root';
@@ -114,11 +114,11 @@ export default function(api, opts = {}) {
     ).map(path => {
 
         //TODO: paths.absSrcPath
-        const subDirPath = dirname(path).replace(paths.absSrcPath + '/stores', ''),
+        const subDirPath =  join( dirname(path) ).replace(  join(paths.absSrcPath, 'stores'), ''),
             simpleName = basename(path, extname(path));
 
-        let updatedPath = subDirPath + '/' + simpleName;
-        updatedPath = updatedPath.slice(1).replace('/', '_');
+        let updatedPath = join(subDirPath, simpleName);
+        updatedPath = (updatedPath.indexOf(sep) == 0 ? updatedPath.slice(1) : updatedPath ).replace(sep, '_');
 
         return {
           name: updatedPath,

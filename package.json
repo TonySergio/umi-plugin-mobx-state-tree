@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-mobx-state-tree-complexstore",
-  "version": "0.0.1-beta.6",
+  "version": "0.0.1-beta.14",
   "description": "use mobx-state-tree with umi@2.",
   "main": "./lib/index.js",
   "dependencies": {

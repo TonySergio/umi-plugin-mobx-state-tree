@@ -111,26 +111,20 @@ export default function(api, opts = {}) {
     return exclude(
       getGlobalStores(api, shouldImportDynamic),
       optsToArray(opts.exclude),
-    )
-    //TODO: paths.absSrcPath
+    ).map(path => {
 
-      // path = '/home/ser_tony/__projects/frontend/src/stores/paytables/MainStore.js'
-      // "/home/ser_tony/__projects/frontend/src/stores/paytables/MainStore.js"
-      // path.replace(src, '')
-      // "/stores/paytables/MainStore.js"
-      // path.replace(src + '/' + 'stores', '')
-      // "/paytables/MainStore.js"
-      // dirName = '/home/ser_tony/__projects/frontend/src/stores/paytables'
-      // "/home/ser_tony/__projects/frontend/src/stores/paytables"
-      // name = 'MainStore.js'
-      // "MainStore.js"
-      // name = 'MainStore'
-      // "MainStore"
-      // dirName.replace(src + '/' + 'stores', '')
-      // "/paytables"
-      // dirName.replace(src + '/' + 'stores', '').replace('/', '.')
+        //TODO: paths.absSrcPath
+        const subDirPath = dirname(path).replace(paths.absSrcPath + '/stores', ''),
+            simpleName = basename(path, extname(path));
 
-      .map(path => ({ name: basename(path, extname(path)), path }))
+        let updatedPath = subDirPath + '/' + simpleName;
+        updatedPath = updatedPath.slice(1).replace('/', '_');
+
+        return {
+          name: updatedPath,
+          path
+        }
+      })
       .filter(_ => _.name);
   }
 

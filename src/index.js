@@ -112,6 +112,24 @@ export default function(api, opts = {}) {
       getGlobalStores(api, shouldImportDynamic),
       optsToArray(opts.exclude),
     )
+    //TODO: paths.absSrcPath
+
+      // path = '/home/ser_tony/__projects/frontend/src/stores/paytables/MainStore.js'
+      // "/home/ser_tony/__projects/frontend/src/stores/paytables/MainStore.js"
+      // path.replace(src, '')
+      // "/stores/paytables/MainStore.js"
+      // path.replace(src + '/' + 'stores', '')
+      // "/paytables/MainStore.js"
+      // dirName = '/home/ser_tony/__projects/frontend/src/stores/paytables'
+      // "/home/ser_tony/__projects/frontend/src/stores/paytables"
+      // name = 'MainStore.js'
+      // "MainStore.js"
+      // name = 'MainStore'
+      // "MainStore"
+      // dirName.replace(src + '/' + 'stores', '')
+      // "/paytables"
+      // dirName.replace(src + '/' + 'stores', '').replace('/', '.')
+
       .map(path => ({ name: basename(path, extname(path)), path }))
       .filter(_ => _.name);
   }

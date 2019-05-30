@@ -1,6 +1,6 @@
 {
-  "name": "umi-plugin-mobx-state-tree",
-  "version": "0.0.1-beta.4",
+  "name": "umi-plugin-mobx-state-tree-complexstore",
+  "version": "0.0.1-beta.5",
   "description": "use mobx-state-tree with umi@2.",
   "main": "./lib/index.js",
   "dependencies": {
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/umijs/umi-plugin-mobx-state-tree"
+    "url": "https://github.com/TonySergio/umi-plugin-mobx-state-tree"
   },
-  "homepage": "https://github.com/umijs/umi/umi-plugin-mobx-state-tree",
+  "homepage": "https://github.com/TonySergio/umi-plugin-mobx-state-tree",
   "authors": [
     "xiaohuoni (https://github.com/xiaohuoni)"
   ],
   "bugs": {
-    "url": "https://github.com/umijs/umi-plugin-mobx-state-tree/issues"
+    "url": "https://github.com/TonySergio/umi-plugin-mobx-state-tree/issues"
   },
   "license": "MIT",
   "files": [
